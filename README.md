@@ -10,6 +10,7 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
 
 - Node v18+ (https://nodejs.org/en/download)
 - Versionador de pacotes Yarn (https://classic.yarnpkg.com/lang/en/docs/install) 
+- Android Studio (https://developer.android.com/)
 
 
 ### 🔧 Instalação e Execução:
