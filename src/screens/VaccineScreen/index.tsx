@@ -11,12 +11,17 @@ import { RootState } from '@/store';
 
 import VaccineAddContent from './contents/VaccineAddContent';
 import VaccineDateContent from './contents/VaccineDateContent';
+import { setSchedule } from '@/store/reducers/schedule';
+import { storage } from '@/utils/scripts/storage';
+import { IUser } from '@/types/user';
+import { useDispatch } from 'react-redux';
 
 const STEPS = ['VaccineAddContent', 'VaccineDateContent'];
 
 export default function VaccineScreen() {
-    const payload = useSelector((state: RootState) => state.vaccines);
-    const vaccines = payload.vaccines;
+    const dispatch = useDispatch();
+    const schedule = useSelector((state: RootState) => state.schedule);
+    const vaccines = schedule.vaccines;
 
     const [currentStep, setCurrentStep] = useState(0);
     const [disabledButton, setDisabledButton] = useState(true);
@@ -46,12 +51,22 @@ export default function VaccineScreen() {
             return setDisabledButton(true);
         }
 
-        if (isLastStep && !payload.service.dateTime) {
+        if (isLastStep && !schedule.dateTime) {
             return setDisabledButton(true);
         }
 
         setDisabledButton(false);
-    }, [currentStep, payload]);
+    }, [currentStep, schedule]);
+
+    useEffect(() => {
+        storage.get('user_address').then((res: IUser['address']) => {
+            dispatch(setSchedule({ ...schedule, userAddress: res, type: 'vaccine' }));
+        });
+    }, []);
+
+    useEffect(() => {
+        console.log('SCHEDULE STATE', schedule);
+    }, [schedule]);
 
     return (
         <Container>
@@ -62,10 +77,6 @@ export default function VaccineScreen() {
             )}
 
             {STEPS[currentStep] === 'VaccineDateContent' && <VaccineDateContent />}
-
-            <View className='bg-neutral-100'>
-                <View className='bg-primary-500' style={{ width: `50%` }} />
-            </View>
 
             <View className='bg-white p-6'>
                 <Button

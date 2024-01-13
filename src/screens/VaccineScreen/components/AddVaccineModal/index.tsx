@@ -3,7 +3,7 @@ import Checkbox from '@/components/Checkbox';
 import CustomModal from '@/components/Modal';
 import { Typo } from '@/components/Typograph';
 import { VACCINES } from '@/constants/vaccines';
-import { IVaccine, setVaccines } from '@/store/reducers/vaccines';
+import { IScheduleVaccine, setScheduleVaccines } from '@/store/reducers/schedule';
 import { useState } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 interface AddVaccineModalProps {
     visible: boolean;
     onClose: () => void;
-    currentVaccines: IVaccine[];
+    currentVaccines: IScheduleVaccine[];
     petId: string;
 }
 
@@ -33,7 +33,7 @@ const AddVaccineModal = ({ visible, currentVaccines, petId, onClose }: AddVaccin
         });
 
         dispatch(
-            setVaccines([
+            setScheduleVaccines([
                 ...currentVaccines.filter((vaccine) => vaccine.petId !== petId),
                 ...selectedVaccines
             ])

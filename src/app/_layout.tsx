@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { RootSiblingParent } from 'react-native-root-siblings';
 import { useCallback } from 'react';
 
-import store from '@/store';
+import store, { RootState } from '@/store';
 import '@/styles/global.css';
 import {
     useFonts,
@@ -15,7 +15,8 @@ import {
     Poppins_400Regular
 } from '@expo-google-fonts/poppins';
 import { Loading } from '@/components/Loading';
-import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Modal, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
+import { useSelector } from 'react-redux';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -43,7 +44,7 @@ export default function Layout() {
         <SafeAreaView onLayout={onLayoutRootView} style={styles.safeArea}>
             <RootSiblingParent>
                 <Provider store={store}>
-                    <Loading />
+                    <LoadingProvider />
                     <Slot />
                 </Provider>
             </RootSiblingParent>
@@ -57,3 +58,9 @@ const styles = StyleSheet.create({
         paddingTop: StatusBar.currentHeight
     }
 });
+
+const LoadingProvider = () => {
+    const { loading } = useSelector((state: RootState) => state.global);
+
+    return loading.show ? <Loading /> : null;
+};

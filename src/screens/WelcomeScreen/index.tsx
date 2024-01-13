@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import { router, useNavigation } from 'expo-router';
-import { View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { router } from 'expo-router';
+import { Alert, View } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 import { Logotype } from '@/assets/svgs/Logotype';
@@ -8,6 +9,9 @@ import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
 import { Button } from '@/components/Button';
 import { theme } from '@/styles/theme';
+import { storage } from '@/utils/scripts/storage';
+import { setLoading } from '@/store/reducers/global';
+import { IUser } from '@/types/user';
 
 import WelcomeContentInitial from './contents/WelcomeContentInitial';
 import WelcomeContentInfo from './contents/WelcomeContentInfo';
@@ -15,7 +19,6 @@ import WelcomeContentAddressCEP from './contents/WelcomeContentAddressCEP';
 import WelcomeContentAddressNumber from './contents/WelcomeContentAddressNumber';
 import WelcomeContentAddressComplement from './contents/WelcomeContentAddressComplement';
 import WelcomeContentAddressResume from './contents/WelcomeContentAddressResume';
-import { IAddressData } from './types';
 
 const INITIAL_ADDRESS_STATE = {
     cep: '',
@@ -25,9 +28,10 @@ const INITIAL_ADDRESS_STATE = {
     city: '',
     number: '',
     complement: ''
-} as IAddressData;
+} as IUser['address'];
 
 export default function WelcomeScreen() {
+    const dispatch = useDispatch();
     const [address, setAddress] = useState(INITIAL_ADDRESS_STATE);
     const [steps, setSteps] = useState([
         {
@@ -73,7 +77,7 @@ export default function WelcomeScreen() {
         },
         {
             name: 'ContentAddressResume',
-            element: ({ address }: { address: IAddressData }) => (
+            element: ({ address }: { address: IUser['address'] }) => (
                 <WelcomeContentAddressResume address={address} />
             ),
             actived: false
@@ -99,7 +103,14 @@ export default function WelcomeScreen() {
         const currentStepIndex = steps.findIndex((step) => step.actived);
 
         if (currentStepIndex >= steps.length - 1) {
-            return router.replace('/main/home/');
+            return storage
+                .set('user_address', address)
+                .then(() => router.replace('/main/home/'))
+                .catch(() => {
+                    Alert.alert('Erro ao inserir endereço', 'Tente novamente mais tarde.', [
+                        { text: 'Fechar' }
+                    ]);
+                });
         }
 
         setSteps((prevState) =>
@@ -128,6 +139,14 @@ export default function WelcomeScreen() {
             })
         );
     };
+
+    useEffect(() => {
+        dispatch(setLoading({ show: true }));
+        storage
+            .get('user_address')
+            .then((res) => res && router.replace('/main/home/'))
+            .finally(() => dispatch(setLoading({ show: false })));
+    }, []);
 
     return (
         <Container className='bg-secondary-900'>

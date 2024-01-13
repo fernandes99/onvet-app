@@ -1,5 +1,5 @@
-import VetsScreen from '@/screens/VetsScreen';
+import VetListScreen from '@/screens/VetListScreen';
 
 export default function VetsRoute() {
-    return <VetsScreen />;
+    return <VetListScreen />;
 }

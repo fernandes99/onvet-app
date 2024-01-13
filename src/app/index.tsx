@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 export default function Layout() {
     const { session, isLoading } = useSession();
 
-    return <Redirect href='/vets/' />;
+    return <Redirect href='/checkout/' />;
 
     if (isLoading) {
         return <Text>Loading...</Text>;

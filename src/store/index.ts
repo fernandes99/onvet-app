@@ -1,12 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import globalReducer from './reducers/global';
 import authReducer from './reducers/auth';
-import vaccinesReducer from './reducers/vaccines';
+import scheduleReducer from './reducers/schedule';
+import checkoutReducer from './reducers/checkout';
 
 const reducer = combineReducers({
     global: globalReducer,
     auth: authReducer,
-    vaccines: vaccinesReducer
+    schedule: scheduleReducer,
+    checkout: checkoutReducer
 });
 
 const store = configureStore({

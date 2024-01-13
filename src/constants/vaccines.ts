@@ -1,4 +1,4 @@
-import { IVaccine } from '@/store/reducers/vaccines';
+import { IScheduleVaccine } from '@/store/reducers/schedule';
 
 export const VACCINES = [
     {
@@ -51,4 +51,4 @@ export const VACCINES = [
         name: 'Vacina contra Giardíase',
         slug: 'giardia'
     }
-] as IVaccine[];
+] as IScheduleVaccine[];

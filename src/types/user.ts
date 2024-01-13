@@ -19,4 +19,12 @@ export interface IUserPet {
     photo: string;
 }
 
-interface IUserAddress {}
+interface IUserAddress {
+    cep: string;
+    street: string;
+    neighborhood: string;
+    uf: string;
+    city: string;
+    number: string;
+    complement: string;
+}

@@ -8,7 +8,7 @@ import { ScrollView, View } from 'react-native';
 import FilterBlock from './components/FilterBlock';
 import { IVeterinary } from '@/types/veterinary';
 
-const VetsScreen = () => {
+const VetListScreen = () => {
     const goToHomeScreen = () => {
         router.push('/main/home/');
     };
@@ -46,4 +46,4 @@ const VetsScreen = () => {
     );
 };
 
-export default VetsScreen;
+export default VetListScreen;

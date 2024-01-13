@@ -5,12 +5,12 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 
 import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
-import { setVaccineService } from '@/store/reducers/vaccines';
 import { theme } from '@/styles/theme';
 import { TouchableOpacity } from 'react-native';
 import RNDateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { Button } from '@/components/Button';
 import { useDispatch } from 'react-redux';
+import { setScheduleDateTime } from '@/store/reducers/schedule';
 
 const VaccineDateContent = () => {
     const dispatch = useDispatch();
@@ -49,7 +49,7 @@ const VaccineDateContent = () => {
                 selectedTime.getMinutes()
             );
 
-            dispatch(setVaccineService({ dateTime: combinedDateTime }));
+            dispatch(setScheduleDateTime(combinedDateTime));
         }
     };
 

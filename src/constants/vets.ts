@@ -13,6 +13,8 @@ export const VET_LIST = [
             'https://christinaanimalhospital.com/uploads/SiteAssets/386/images/staff/811147.jpg',
         graduation: ['Medicina veterinária UNINASSAU', 'Pós-graduanda em Acupuntura'],
         experience: ['ASSVET', 'Instituto Mamíferos Aquáticos', 'CEPENE/ICMBio'],
+        crmv: '33823',
+        price: 129.99,
         specialties: [
             {
                 name: 'Cardiologia',
@@ -119,6 +121,8 @@ export const VET_LIST = [
         profileImage: 'https://d2b0sstunfvm0v.cloudfront.net/image-54648-340.jpg',
         graduation: ['Medicina veterinária UFMG', 'Pós-graduação em Reprodução Animal'],
         experience: ['Fazenda São João', 'Haras do Vale'],
+        crmv: '33823',
+        price: 70.0,
         specialties: [
             {
                 name: 'Reprodução Animal',
@@ -199,6 +203,8 @@ export const VET_LIST = [
             'Especialização em Medicina Interna de Pequenos Animais'
         ],
         experience: ['Clínica Veterinária Amigo Fiel', 'Hospital Veterinário PetCare'],
+        crmv: '33823',
+        price: 79.99,
         specialties: [
             {
                 name: 'Medicina Interna',
@@ -276,6 +282,8 @@ export const VET_LIST = [
             'https://smartcdn.gprod.postmedia.digital/v1/dynamic_resize/sws_path/suns-prod-images/1298009582831_ORIGINAL.jpg?quality=90&size=650x&strip=all&w=288&h=216&sig=qB0HgQ_wXf7yKiYPTdZKQw',
         graduation: ['Medicina veterinária UFPR', 'Mestrado em Conservação de Animais Silvestres'],
         experience: ['Parque Nacional da Serra dos Órgãos', 'Projeto Tamar'],
+        crmv: '33823',
+        price: 80.0,
         specialties: [
             {
                 name: 'Animais Silvestres',
@@ -334,6 +342,8 @@ export const VET_LIST = [
         profileImage: 'https://www.lida-vets.co.uk/news/wp-content/uploads/2020/05/paige.jpg',
         graduation: ['Medicina veterinária UFRGS', 'Especialização em Animais Exóticos'],
         experience: ['Clínica ExoPet', 'Zoológico Municipal'],
+        crmv: '33823',
+        price: 89.99,
         specialties: [
             {
                 name: 'Animais Exóticos',

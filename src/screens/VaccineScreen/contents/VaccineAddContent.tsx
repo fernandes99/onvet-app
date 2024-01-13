@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Alert, ScrollView, View } from 'react-native';
+import { Alert, ScrollView, TouchableOpacity, View } from 'react-native';
 
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
@@ -11,13 +11,14 @@ import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
 import AddVaccineModal from '../components/AddVaccineModal';
-import { IVaccine } from '@/store/reducers/vaccines';
 import { IUser, IUserPet } from '@/types/user';
 import { storage } from '@/utils/scripts/storage';
 import { theme } from '@/styles/theme';
+import { IScheduleVaccine } from '@/store/reducers/schedule';
+import { router } from 'expo-router';
 
 interface VaccineAddContentProps {
-    vaccines: IVaccine[];
+    vaccines: IScheduleVaccine[];
 }
 
 const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
@@ -50,6 +51,10 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
             ...vaccineModal,
             show: false
         });
+    };
+
+    const goToAddPetScreen = () => {
+        router.push('/main/pet/new/');
     };
 
     useEffect(getPets, []);
@@ -126,6 +131,17 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
                             </View>
                         );
                     })}
+
+                    <TouchableOpacity onPress={goToAddPetScreen} className='mt-8 items-center'>
+                        <View className='mb-2 h-24 w-24 items-center justify-center rounded-full bg-primary-100'>
+                            <AntDesign
+                                name='pluscircle'
+                                size={32}
+                                color={theme.colors['primary-500']}
+                            />
+                        </View>
+                        <Typo.H5 className='text-primary-500'>Cadastrar pet</Typo.H5>
+                    </TouchableOpacity>
                 </Container>
             </ScrollView>
 

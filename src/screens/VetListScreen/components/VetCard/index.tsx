@@ -6,6 +6,7 @@ import Tag from '@/components/Tag';
 import { Typo } from '@/components/Typograph';
 import { IVeterinary } from '@/types/veterinary';
 import { theme } from '@/styles/theme';
+import format from '@/utils/scripts/format';
 
 const LIMIT_SPECIALITY = 2;
 
@@ -46,9 +47,15 @@ const VetCard = ({ vet, ...rest }: VetCardProps) => {
                         })}
                     </View>
 
-                    <View className='flex-row items-center'>
+                    <View className='mb-3 flex-row items-center'>
                         <Entypo name='location-pin' size={16} color={theme.colors['neutral-200']} />
                         <Typo.S1 className='text-neutral-300'>0,55 km de distância</Typo.S1>
+                    </View>
+
+                    <View className='flex-row flex-wrap gap-2'>
+                        <Typo.P2 weight='medium' className='text-green-600'>
+                            {format.money(vet.price)}
+                        </Typo.P2>
                     </View>
                 </View>
             </View>

@@ -24,6 +24,7 @@ module.exports = {
                 'primary-100': '#E9F4FF',
                 'primary-200': '#D1E9FF',
                 'primary-500': '#0085FF',
+                'primary-600': '#005EB6',
                 'primary-900': '#001C35',
 
                 'secondary-100': '#DEDEFF',
@@ -37,7 +38,10 @@ module.exports = {
                 'purple-200': '#EAD0FF',
                 'purple-500': '#8F00FF',
 
-                'red-500': '#DD3737'
+                'red-500': '#DD3737',
+
+                'green-500': '#11D13B',
+                'green-600': '#129E31'
             }
         }
     },

@@ -26,6 +26,8 @@ export interface IVeterinary {
     surname: string;
     about: string;
     profileImage: string;
+    crmv: string;
+    price: number;
     graduation: string[];
     experience: string[];
     specialties: ISpecialty[];
