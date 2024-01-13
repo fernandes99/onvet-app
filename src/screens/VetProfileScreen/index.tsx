@@ -1,7 +1,18 @@
-import { Typo } from '@/components/Typograph';
+import { useMemo } from 'react';
+import { useLocalSearchParams } from 'expo-router';
+import { VET_LIST } from '@/constants/vets';
+import VetProfileContent from './contents/VetProfileContent';
 
 const VetProfileScreen = () => {
-    return <Typo.H1>ProfileScreen</Typo.H1>;
+    const { id } = useLocalSearchParams<{ id: string }>();
+    const vetData = useMemo(() => {
+        return VET_LIST.find((vet) => vet.id === id);
+    }, [id]);
+
+    if (!vetData) {
+        return null;
+    }
+    return <VetProfileContent vet={vetData} />;
 };
 
 export default VetProfileScreen;
