@@ -1,4 +1,5 @@
 import { IUser } from '@/types/user';
+import { IVaccine } from '@/types/vaccine';
 import { IVeterinary } from '@/types/veterinary';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
@@ -7,6 +8,11 @@ interface ICheckoutVaccine {
     slug: string;
     name: string;
     petId: string;
+}
+
+interface ISummaryVaccine extends IVaccine {
+    price: number;
+    quantity: number;
 }
 
 interface ICheckoutData {
@@ -18,6 +24,7 @@ interface ICheckoutData {
     };
     summary: {
         totalPrice: number;
+        totalPerVaccines: ISummaryVaccine[];
     };
     payment: {
         method: 'pix';

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { View } from 'react-native';
-import { router, useNavigation } from 'expo-router';
+import { router } from 'expo-router';
 import { useSelector } from 'react-redux';
 
 import { Button } from '@/components/Button';
@@ -47,11 +47,7 @@ export default function VaccineScreen() {
     };
 
     useEffect(() => {
-        if (!vaccines.length) {
-            return setDisabledButton(true);
-        }
-
-        if (isLastStep && !schedule.dateTime) {
+        if (!vaccines.length || (isLastStep && !schedule.dateTime)) {
             return setDisabledButton(true);
         }
 
@@ -63,10 +59,6 @@ export default function VaccineScreen() {
             dispatch(setSchedule({ ...schedule, userAddress: res, type: 'vaccine' }));
         });
     }, []);
-
-    useEffect(() => {
-        console.log('SCHEDULE STATE', schedule);
-    }, [schedule]);
 
     return (
         <Container>

@@ -12,7 +12,7 @@ export default function WelcomeRoute() {
     useEffect(() => {
         storage
             .get('user_address')
-            .then(() => setHasUserAddress(true))
+            .then((res) => setHasUserAddress(!!res))
             .catch(() => setHasUserAddress(false))
             .finally(() => setLoading(false));
     }, []);

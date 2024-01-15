@@ -68,7 +68,7 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
                         Escolha um pet para adicionar as vacinas
                     </Typo.P2>
 
-                    {pets.map((pet) => {
+                    {pets?.map((pet) => {
                         const vaccinesSeleted = vaccines.filter(
                             (vaccine) => vaccine.petId === pet.id
                         );

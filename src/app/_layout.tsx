@@ -1,7 +1,9 @@
+import { useCallback } from 'react';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 import { Slot, SplashScreen } from 'expo-router';
 import { Provider } from 'react-redux';
 import { RootSiblingParent } from 'react-native-root-siblings';
-import { useCallback } from 'react';
 
 import store, { RootState } from '@/store';
 import '@/styles/global.css';
@@ -15,8 +17,6 @@ import {
     Poppins_400Regular
 } from '@expo-google-fonts/poppins';
 import { Loading } from '@/components/Loading';
-import { ActivityIndicator, Modal, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import { useSelector } from 'react-redux';
 
 SplashScreen.preventAutoHideAsync();
 

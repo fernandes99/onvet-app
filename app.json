@@ -1,50 +1,46 @@
 {
-  "expo": {
-    "name": "onvet-app",
-    "slug": "onvet-app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.fernandes99.onvetapp"
-    },
-    "scheme": "onvet-app-scheme",
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.fernandes99.onvetapp"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png",
-      "bundler": "metro"
-    },
-    "experiments": {
-      "typedRoutes": true,
-      "tsconfigPaths": true
-    },
-    "plugins": [
-      "expo-router"
-    ],
-    "extra": {
-      "router": {
-        "origin": false
-      },
-      "eas": {
-        "projectId": "18a12e12-8c69-4224-b4e2-02ee708ac94b"
-      }
-    },
-    "owner": "fernandes99"
-  }
+    "expo": {
+        "name": "onvet-app",
+        "slug": "onvet-app",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "light",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#000066"
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.fernandes99.onvetapp"
+        },
+        "scheme": "onvet-app-scheme",
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#000066"
+            },
+            "package": "com.fernandes99.onvetapp"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png",
+            "bundler": "metro"
+        },
+        "experiments": {
+            "typedRoutes": true,
+            "tsconfigPaths": true
+        },
+        "plugins": ["expo-router"],
+        "extra": {
+            "router": {
+                "origin": false
+            },
+            "eas": {
+                "projectId": "18a12e12-8c69-4224-b4e2-02ee708ac94b"
+            }
+        },
+        "owner": "fernandes99"
+    }
 }

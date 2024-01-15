@@ -50,17 +50,33 @@ const CheckoutScreen = () => {
             <TopBar title='Confirme os dados' onBack={goToBack} onCancel={goToVetListScreen} />
             <ScrollView className='flex-1 bg-slate-50'>
                 <Container className='p-6'>
-                    <Field title='Serviço' value={scheduleType} />
-                    <Field
-                        title='Data'
-                        value={checkoutData.schedule.dateTime.toLocaleDateString() || ''}
-                    />
-                    <Field
-                        title='Hora'
-                        value={checkoutData.schedule.dateTime.toLocaleTimeString() || ''}
-                    />
-                    <Field title='Endereço' value={'TODO'} />
-                    <Field title='Método de pagamento' value='PIX' />
+                    <View className='mb-8'>
+                        <Typo.P1 weight='medium' className='mb-4'>
+                            Resumo do agendamento
+                        </Typo.P1>
+                        <Field title='Serviço' value={scheduleType} />
+                        <Field
+                            title='Data'
+                            value={checkoutData.schedule.dateTime.toLocaleDateString() || ''}
+                        />
+                        <Field
+                            title='Hora'
+                            value={checkoutData.schedule.dateTime.toLocaleTimeString() || ''}
+                        />
+                        <Field title='Endereço' value={'TODO'} />
+                        <Field title='Método de pagamento' value='PIX' />
+                    </View>
+
+                    <View className='mb-8'>
+                        <Typo.P1 weight='medium' className='mb-4'>
+                            Resumo de valores
+                        </Typo.P1>
+                        <Field
+                            title={`${checkoutData.schedule.vaccines.length} ${checkoutData.schedule.vaccines.length > 1 ? 'Aplicações de vacinas' : 'Aplicação de vacina'}`}
+                            value='R$ XX'
+                        />
+                        <Field title='Método de pagamento' value='PIX' />
+                    </View>
                 </Container>
             </ScrollView>
             <View className='flex-row border-t border-t-neutral-100 bg-white p-6'>

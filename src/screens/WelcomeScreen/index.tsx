@@ -140,14 +140,6 @@ export default function WelcomeScreen() {
         );
     };
 
-    useEffect(() => {
-        dispatch(setLoading({ show: true }));
-        storage
-            .get('user_address')
-            .then((res) => res && router.replace('/main/home/'))
-            .finally(() => dispatch(setLoading({ show: false })));
-    }, []);
-
     return (
         <Container className='bg-secondary-900'>
             {currentStep.name !== 'ContentAddressResume' && (
