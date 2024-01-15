@@ -31,7 +31,7 @@ export default function TabsLayout() {
                 }}
             />
             <Tabs.Screen
-                name='appointments'
+                name='schedule'
                 options={{
                     tabBarIcon: ({ color }) => (
                         <FontAwesome5 name='clipboard-list' size={24} color={color} />

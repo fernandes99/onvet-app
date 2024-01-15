@@ -1,5 +1,11 @@
-import { Slot } from 'expo-router';
+import { Stack } from 'expo-router';
 
-export default function ProfileLayout() {
-    return <Slot />;
+export default function PetLayout() {
+    return (
+        <Stack
+            screenOptions={{
+                headerShown: false
+            }}
+        />
+    );
 }
