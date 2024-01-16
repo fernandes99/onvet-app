@@ -1,5 +1,10 @@
+import { Container } from '@/components/Container';
 import LoginScreen from '@/screens/LoginScreen';
 
 export default function LoginRoute() {
-    return <LoginScreen />;
+    return (
+        <Container>
+            <LoginScreen />
+        </Container>
+    );
 }
