@@ -27,7 +27,7 @@ export default function LoginScreen() {
             await GoogleSignin.hasPlayServices();
             const user = await GoogleSignin.signIn();
             setUserInfo(user);
-            goToWelcomeScreen();
+            console.log(user);
         } catch (e) {
             console.log('Error', e);
         } finally {
@@ -44,7 +44,8 @@ export default function LoginScreen() {
 
     useEffect(() => {
         GoogleSignin.configure({
-            webClientId: '937027356400-u8c5lk1apllqc7a2nob8d3sf1kr3b180.apps.googleusercontent.com'
+            webClientId: '937027356400-u8c5lk1apllqc7a2nob8d3sf1kr3b180.apps.googleusercontent.com',
+            iosClientId: '937027356400-mbd0qdo51agtlkl5lbosfratgenc3nra.apps.googleusercontent.com'
         });
     }, []);
 

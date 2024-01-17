@@ -77,10 +77,10 @@ const VetProfileContent = ({ vet }: VetProfileContentProps) => {
                     <View className='gap-2 rounded-xl bg-white p-4'>
                         <View className='mb-6 flex-1 items-center gap-2'>
                             <View>
-                                <View className=' -mt-12 h-24 w-24 overflow-hidden rounded-full border-4 border-white'>
+                                <View className='-mt-12 h-24 w-24 overflow-hidden rounded-full border-4 border-white'>
                                     <Image
                                         style={{ flex: 1 }}
-                                        source={vet.profileImage}
+                                        source={vet.profile_image}
                                         contentFit='cover'
                                         transition={500}
                                     />

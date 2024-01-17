@@ -9,7 +9,7 @@ export const VET_LIST = [
         name: 'Soraya',
         surname: 'Brito da Silva',
         about: 'Atuo de forma preventiva nos cuidados da saúde de cães e gatos. Experiência de mais de anos na área veterinária e 8 anos exclusiva como médica veterinária de pequenos animais domésticos.',
-        profileImage:
+        profile_image:
             'https://christinaanimalhospital.com/uploads/SiteAssets/386/images/staff/811147.jpg',
         graduation: ['Medicina veterinária UNINASSAU', 'Pós-graduanda em Acupuntura'],
         experience: ['ASSVET', 'Instituto Mamíferos Aquáticos', 'CEPENE/ICMBio'],
@@ -118,7 +118,7 @@ export const VET_LIST = [
         name: 'Lucas',
         surname: 'Almeida Souza',
         about: 'Médico Veterinário com experiência em animais de grande porte. Especializado em reprodução animal.',
-        profileImage: 'https://d2b0sstunfvm0v.cloudfront.net/image-54648-340.jpg',
+        profile_image: 'https://d2b0sstunfvm0v.cloudfront.net/image-54648-340.jpg',
         graduation: ['Medicina veterinária UFMG', 'Pós-graduação em Reprodução Animal'],
         experience: ['Fazenda São João', 'Haras do Vale'],
         crmv: '33823',
@@ -196,7 +196,7 @@ export const VET_LIST = [
         name: 'Camila',
         surname: 'Oliveira Lima',
         about: 'Médica veterinária apaixonada por animais de estimação. Atuo na prevenção e tratamento de diversas doenças em cães e gatos.',
-        profileImage:
+        profile_image:
             'https://img.freepik.com/fotos-gratis/mulher-sorridente-posando-enquanto-segura-seu-adoravel-cao_23-2148567080.jpg?w=826&t=st=1705153279~exp=1705153879~hmac=025f0da9f72bc7cf269c07881c53a167cd3f626cb1acf0eb393f42481c0b1d33',
         graduation: [
             'Medicina veterinária UFRJ',
@@ -278,7 +278,7 @@ export const VET_LIST = [
         name: 'Rafael',
         surname: 'Ferreira Santos',
         about: 'Veterinário dedicado a cuidar do bem-estar de animais silvestres. Trabalho em parques ecológicos e projetos de conservação da fauna.',
-        profileImage:
+        profile_image:
             'https://smartcdn.gprod.postmedia.digital/v1/dynamic_resize/sws_path/suns-prod-images/1298009582831_ORIGINAL.jpg?quality=90&size=650x&strip=all&w=288&h=216&sig=qB0HgQ_wXf7yKiYPTdZKQw',
         graduation: ['Medicina veterinária UFPR', 'Mestrado em Conservação de Animais Silvestres'],
         experience: ['Parque Nacional da Serra dos Órgãos', 'Projeto Tamar'],
@@ -339,7 +339,7 @@ export const VET_LIST = [
         name: 'Carolina',
         surname: 'Santos Oliveira',
         about: 'Especializada em animais exóticos e de estimação não convencionais. Trabalho com répteis, aves e pequenos mamíferos.',
-        profileImage: 'https://www.lida-vets.co.uk/news/wp-content/uploads/2020/05/paige.jpg',
+        profile_image: 'https://www.lida-vets.co.uk/news/wp-content/uploads/2020/05/paige.jpg',
         graduation: ['Medicina veterinária UFRGS', 'Especialização em Animais Exóticos'],
         experience: ['Clínica ExoPet', 'Zoológico Municipal'],
         crmv: '33823',

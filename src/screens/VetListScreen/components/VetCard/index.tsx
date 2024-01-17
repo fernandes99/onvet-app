@@ -17,12 +17,12 @@ interface VetCardProps extends TouchableOpacityProps {
 const VetCard = ({ vet, ...rest }: VetCardProps) => {
     return (
         <TouchableOpacity className='flex-1 rounded-lg bg-white p-4' {...rest}>
-            <Image source={vet.profileImage} contentFit='cover' />
+            <Image source={vet.profile_image} contentFit='cover' />
             <View className='flex-1 flex-row gap-4'>
                 <View className='h-16 w-16 overflow-hidden rounded-full'>
                     <Image
                         style={{ flex: 1 }}
-                        source={vet.profileImage}
+                        source={vet.profile_image}
                         contentFit='cover'
                         transition={500}
                     />

@@ -25,7 +25,7 @@ const CHECKOUT_MOCK = {
         name: 'Soraya',
         surname: 'Brito da Silva',
         about: 'Atuo de forma preventiva nos cuidados da saúde de cães e gatos. Experiência de mais de anos na área veterinária e 8 anos exclusiva como médica veterinária de pequenos animais domésticos.',
-        profileImage:
+        profile_image:
             'https://christinaanimalhospital.com/uploads/SiteAssets/386/images/staff/811147.jpg',
         graduation: ['Medicina veterinária UNINASSAU', 'Pós-graduanda em Acupuntura'],
         experience: ['ASSVET', 'Instituto Mamíferos Aquáticos', 'CEPENE/ICMBio'],

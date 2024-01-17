@@ -11,32 +11,26 @@ import { Container } from '@/components/Container';
 
 const DATA_LIST = [
     {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'Ajuda',
-        icon: <Feather name='headphones' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => {}
-    },
-    {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
         title: 'Meus Dados',
         icon: <AntDesign name='profile' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => {}
+        onPress: () => router.push('/vet/main/profile/edit/')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Meus pets',
-        icon: <Ionicons name='paw-outline' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => router.push('/main/pet/')
+        title: 'Especializações e serviços',
+        icon: <AntDesign name='rocket1' size={24} color='black' />,
+        onPress: () => router.push('/vet/main/profile/services/')
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91a972f63',
-        title: 'Endereço',
+        title: 'Endereços',
         icon: <Feather name='home' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => router.push('/location/')
+        onPress: () => router.push('/vet/main/profile/address/')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29742',
-        title: 'Agendametos',
+        title: 'Agendamentos',
         icon: <FontAwesome5 name='calendar-alt' size={24} color={theme.colors['neutral-700']} />,
         onPress: () => router.push('/main/schedule/')
     },
@@ -44,6 +38,12 @@ const DATA_LIST = [
         id: '58694a0f-3da1-471f-bd96-145571e29d22',
         title: 'Política de privacidade',
         icon: <Feather name='settings' size={24} color={theme.colors['neutral-700']} />,
+        onPress: () => {}
+    },
+    {
+        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        title: 'Ajuda',
+        icon: <Feather name='headphones' size={24} color={theme.colors['neutral-700']} />,
         onPress: () => {}
     }
 ];
