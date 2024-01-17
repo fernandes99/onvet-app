@@ -40,13 +40,24 @@ const LocationContent = ({ address }: LocationContenrProps) => {
                         />
                     </View>
                 </View>
-                <Input label='Número' size='small' borderless={false} value={address.number} />
-                <Input
-                    label='Complemento'
-                    size='small'
-                    borderless={false}
-                    value={address.complement}
-                />
+                <View className='w-full flex-row gap-6'>
+                    <View className='flex-1'>
+                        <Input
+                            label='Número'
+                            size='small'
+                            borderless={false}
+                            value={address.number}
+                        />
+                    </View>
+                    <View className='flex-1'>
+                        <Input
+                            label='Complemento'
+                            size='small'
+                            borderless={false}
+                            value={address.complement}
+                        />
+                    </View>
+                </View>
             </Container>
         </ScrollView>
     );

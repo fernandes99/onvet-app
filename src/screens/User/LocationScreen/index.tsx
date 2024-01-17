@@ -8,6 +8,7 @@ import { IUser } from '@/types/user';
 import { storage } from '@/utils/scripts/storage';
 import { Button } from '@/components/Button';
 import { Typo } from '@/components/Typograph';
+import { theme } from '@/styles/theme';
 
 export default function LocationScreen() {
     const [loading, setLoading] = useState(true);
@@ -24,10 +25,17 @@ export default function LocationScreen() {
     }, []);
 
     return (
-        <Container>
+        <Container className='bg-slate-50'>
             <TopBar title='Meu endereço' onBack={goToBack} />
             <Container className='p-6'>
-                {loading && <ActivityIndicator animating={true} color='#fff' size='large' />}
+                {loading && (
+                    <ActivityIndicator
+                        animating={true}
+                        color={theme.colors['primary-500']}
+                        size='large'
+                        className='flex-1'
+                    />
+                )}
                 {address && !loading && <LocationContent address={address} />}
             </Container>
             <View className='border-t border-t-neutral-100 bg-white p-6'>

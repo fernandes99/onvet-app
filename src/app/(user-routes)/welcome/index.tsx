@@ -1,6 +1,6 @@
 import { Loading } from '@/components/Loading';
 import { Typo } from '@/components/Typograph';
-import WelcomeScreen from '@/screens/WelcomeScreen';
+import WelcomeScreen from '@/screens/User/WelcomeScreen';
 import { storage } from '@/utils/scripts/storage';
 import { Redirect } from 'expo-router';
 import { useEffect, useState } from 'react';

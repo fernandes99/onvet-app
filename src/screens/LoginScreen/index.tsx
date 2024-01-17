@@ -11,6 +11,9 @@ import { Logotype } from '@/assets/svgs/Logotype';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
+import { Image } from 'expo-image';
+import { storage } from '@/utils/scripts/storage';
+import Toast from 'react-native-root-toast';
 
 export default function LoginScreen() {
     const dispatch = useDispatch();
@@ -26,9 +29,17 @@ export default function LoginScreen() {
             dispatch(setLoading({ show: true }));
             await GoogleSignin.hasPlayServices();
             const user = await GoogleSignin.signIn();
-            setUserInfo(user);
-            console.log(user);
+
+            storage.set('user_data', {
+                id: user.user.id,
+                name: user.user.name,
+                surname: user.user.familyName
+            });
         } catch (e) {
+            Toast.show('Erro ao se autenticar', {
+                shadow: true,
+                animation: true
+            });
             console.log('Error', e);
         } finally {
             dispatch(setLoading({ show: false }));
@@ -59,6 +70,14 @@ export default function LoginScreen() {
 
                 {userInfo ? (
                     <Button onPress={logout}>
+                        <View className='h-8 w-8'>
+                            <Image
+                                style={{ flex: 1, borderRadius: 9999 }}
+                                source={userInfo.user.photo}
+                                contentFit='cover'
+                                transition={500}
+                            />
+                        </View>
                         <Typo.H5>Logout</Typo.H5>
                     </Button>
                 ) : (

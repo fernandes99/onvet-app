@@ -32,7 +32,7 @@ const DATA_LIST = [
         id: '58694a0f-3da1-471f-bd96-145571e29742',
         title: 'Agendamentos',
         icon: <FontAwesome5 name='calendar-alt' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => router.push('/main/schedule/')
+        onPress: () => router.push('/vet/main/schedule/')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d22',

@@ -1,4 +1,4 @@
-import PetNewScreen from '@/screens/PetNewScreen';
+import PetNewScreen from '@/screens/User/PetNewScreen';
 
 export default function PetNewRouter() {
     return <PetNewScreen />;

@@ -12,13 +12,13 @@ interface InputProps extends TextInputProps {
 
 const styles = {
     default:
-        'w-full rounded-xl text-neutral-700 placeholder:text-neutral-300 font-Poppins_400Regular',
+        'w-full rounded-xl text-neutral-700 placeholder:text-neutral-300 font-Poppins_400Regular border border-neutral-200/50',
     size: {
         small: 'text-lg px-5 py-3 pb-2',
         medium: 'text-3xl',
         large: ''
     },
-    borderless: 'border border-neutral-100'
+    borderless: 'border-0'
 };
 
 export const Input = forwardRef<TextInput, InputProps>(
@@ -37,7 +37,7 @@ export const Input = forwardRef<TextInput, InputProps>(
                         '',
                         styles.default,
                         styles.size[size],
-                        styles.borderless && styles.borderless,
+                        borderless && styles.borderless,
                         className
                     )}
                 />

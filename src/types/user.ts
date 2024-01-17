@@ -1,4 +1,7 @@
 export interface IUser {
+    id: string;
+    name: string;
+    surname: string;
     pets: IUserPet[];
     address: IUserAddress;
 }
