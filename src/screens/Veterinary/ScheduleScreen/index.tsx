@@ -17,7 +17,7 @@ export default function ScheduleScreen() {
 
     return (
         <Container>
-            <TopBar title='Especializações e serviços' onBack={goToBack} />
+            <TopBar title='Agenda' onBack={goToBack} />
             <Container className='bg-white'>
                 <ScheduleContent />
             </Container>

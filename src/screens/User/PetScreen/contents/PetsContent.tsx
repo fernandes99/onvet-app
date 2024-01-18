@@ -16,7 +16,7 @@ interface PetsContentProps {
 
 export const PetsContent = ({ pets, onRemovePet }: PetsContentProps) => {
     const goToPetNewScreen = () => {
-        router.push('/(routes)/main/(tabs)/pet/new');
+        router.push('/main/pet/new/');
     };
 
     const Field = ({ title, value }: { title: string; value: string }) => (
