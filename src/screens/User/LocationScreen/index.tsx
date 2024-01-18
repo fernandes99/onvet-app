@@ -20,7 +20,7 @@ export default function LocationScreen() {
     useEffect(() => {
         storage
             .get('user_address')
-            .then((res: IUser['address']) => res && setAddress(res))
+            .then((res: IUser['address']) => setAddress(res))
             .finally(() => setLoading(false));
     }, []);
 

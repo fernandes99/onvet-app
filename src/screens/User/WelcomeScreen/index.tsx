@@ -99,18 +99,25 @@ export default function WelcomeScreen() {
         return false;
     }, [address, currentStep]);
 
+    const saveAddress = () => {
+        dispatch(setLoading({ show: true }));
+
+        storage
+            .set('user_address', address)
+            .then(() => router.replace('/user/main/home/'))
+            .catch(() => {
+                Alert.alert('Erro ao criar o endereço', 'Tente novamente mais tarde.', [
+                    { text: 'Fechar' }
+                ]);
+            })
+            .finally(() => dispatch(setLoading({ show: false })));
+    };
+
     const goToNextStep = () => {
         const currentStepIndex = steps.findIndex((step) => step.actived);
 
         if (currentStepIndex >= steps.length - 1) {
-            return storage
-                .set('user_address', address)
-                .then(() => router.replace('/user/main/home/'))
-                .catch(() => {
-                    Alert.alert('Erro ao inserir endereço', 'Tente novamente mais tarde.', [
-                        { text: 'Fechar' }
-                    ]);
-                });
+            return saveAddress();
         }
 
         setSteps((prevState) =>

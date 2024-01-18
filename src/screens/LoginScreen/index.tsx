@@ -27,14 +27,17 @@ export default function LoginScreen() {
     const signInGoogle = async () => {
         try {
             dispatch(setLoading({ show: true }));
+
             await GoogleSignin.hasPlayServices();
             const user = await GoogleSignin.signIn();
 
-            storage.set('user_data', {
+            await storage.set('user_data', {
                 id: user.user.id,
                 name: user.user.name,
-                surname: user.user.familyName
+                surname: user.user.familyName,
+                profile_image: user.user.photo
             });
+            goToWelcomeScreen();
         } catch (e) {
             Toast.show('Erro ao se autenticar', {
                 shadow: true,

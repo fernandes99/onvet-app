@@ -1,10 +1,10 @@
 import { View } from 'react-native';
 
 import { Typo } from '@/components/Typograph';
-import { IAddressData } from '../types';
+import { IUser } from '@/types/user';
 
 interface WelcomeContentAddressResumeProps {
-    address: IAddressData;
+    address: IUser['address'];
 }
 
 const WelcomeContentAddressResume = ({ address }: WelcomeContentAddressResumeProps) => {

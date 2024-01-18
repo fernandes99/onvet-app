@@ -126,6 +126,7 @@ const VaccineDateContent = () => {
                         testID='dateTimePicker'
                         value={time || new Date()}
                         mode='time'
+                        minuteInterval={30}
                         display={Platform.OS === 'ios' ? 'spinner' : 'default'}
                         onChange={onTimeChange}
                     />

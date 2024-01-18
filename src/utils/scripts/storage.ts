@@ -20,10 +20,11 @@ export const storage = {
             const value = await AsyncStorage.getItem(key);
 
             if (value !== null) {
-                return JSON.parse(value);
+                return JSON.parse(value) ? JSON.parse(value) : value;
             }
             return null;
         } catch (error) {
+            return null;
             console.error('Erro ao obter item do storage:', error);
             return null;
         }

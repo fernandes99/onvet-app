@@ -1,14 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, ScrollView, TouchableOpacity, View } from 'react-native';
-
-import Entypo from '@expo/vector-icons/Entypo';
+import { router } from 'expo-router';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
-import { AvatarCatIllustration } from '@/assets/svgs/illustrations/AvatarCatIllustration';
-import { AvatarDogIllustration } from '@/assets/svgs/illustrations/AvatarDogIllustration';
-
-import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
 import AddVaccineModal from '../components/AddVaccineModal';
@@ -16,7 +10,7 @@ import { IUser, IUserPet } from '@/types/user';
 import { storage } from '@/utils/scripts/storage';
 import { theme } from '@/styles/theme';
 import { IScheduleVaccine } from '@/store/reducers/schedule';
-import { router } from 'expo-router';
+import { PetCard } from '../components/PetCard';
 
 interface VaccineAddContentProps {
     vaccines: IScheduleVaccine[];
@@ -81,48 +75,14 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
                         Escolha um pet para adicionar as vacinas
                     </Typo.P2>
 
-                    {sortedPets?.map((pet) => {
-                        const vaccinesSeleted = vaccines.filter(
-                            (vaccine) => vaccine.petId === pet.id
-                        );
-
-                        console.log(vaccinesSeleted?.length);
-
-                        return (
-                            <TouchableOpacity
-                                className='mb-6 flex-row items-center gap-6 rounded-xl border border-neutral-100 p-4'
-                                onPress={() => openAddVaccineModal(pet.id)}
-                                key={pet.id}
-                            >
-                                {pet.type === 'cat' && <AvatarCatIllustration size={64} />}
-                                {pet.type === 'dog' && <AvatarDogIllustration size={64} />}
-
-                                <View>
-                                    <Typo.H5 weight='medium'>{pet.name}</Typo.H5>
-                                    <Typo.P1 className='text-neutral-400'>{pet.breed}</Typo.P1>
-
-                                    {!!vaccinesSeleted?.length && (
-                                        <View className='mb-2 mt-1 rounded-full bg-primary-100 px-3 py-1'>
-                                            <Typo.P2 weight='medium' className='text-primary-600'>
-                                                {vaccinesSeleted.length}{' '}
-                                                {vaccinesSeleted.length === 1
-                                                    ? 'Vacina selecionada'
-                                                    : 'Vacinas selecionadas'}
-                                            </Typo.P2>
-                                        </View>
-                                    )}
-                                </View>
-
-                                <View className='absolute right-4 top-1/2'>
-                                    <Entypo
-                                        name='chevron-small-right'
-                                        size={24}
-                                        color={theme.colors['primary-500']}
-                                    />
-                                </View>
-                            </TouchableOpacity>
-                        );
-                    })}
+                    {sortedPets?.map((pet) => (
+                        <PetCard
+                            key={pet.id}
+                            onPress={() => openAddVaccineModal(pet.id)}
+                            vaccines={vaccines}
+                            pet={pet}
+                        />
+                    ))}
 
                     <TouchableOpacity onPress={goToAddPetScreen} className='mt-8 items-center'>
                         <View className='mb-2 h-24 w-24 items-center justify-center rounded-full bg-primary-100'>
