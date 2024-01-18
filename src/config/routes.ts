@@ -5,10 +5,10 @@ const routes = {
     welcome: '/welcome',
     vets: '/vets',
     main: {
-        home: '/main/home',
-        pet: '/main/pet',
-        profile: '/main/profile',
-        schedule: '/main/schedule'
+        home: '/user/main/home',
+        pet: '/user/main/pet',
+        profile: '/user/main/profile',
+        schedule: '/user/main/schedule'
     },
     vaccines: '/vaccines',
     vetProfile: (vetId: string) => `/vets/${vetId}`

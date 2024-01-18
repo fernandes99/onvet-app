@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Alert, ScrollView, TouchableOpacity, View } from 'react-native';
 
+import Entypo from '@expo/vector-icons/Entypo';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
@@ -28,6 +29,19 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
         petId: ''
     });
 
+    const sortedPets = useMemo(() => {
+        return pets?.sort((petA, petB) => {
+            const vaccinesSeletedA = vaccines.filter((vaccine) => vaccine.petId === petA.id);
+            const vaccinesSeletedB = vaccines.filter((vaccine) => vaccine.petId === petB.id);
+
+            if (vaccinesSeletedA.length === vaccinesSeletedB.length) {
+                return 0;
+            }
+
+            return vaccinesSeletedB.length > vaccinesSeletedA.length ? 1 : -1;
+        });
+    }, [vaccines, pets]);
+
     const getPets = () => {
         storage
             .get('user_pets')
@@ -54,81 +68,59 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
     };
 
     const goToAddPetScreen = () => {
-        router.push('/main/pet/new/');
+        router.push('/user/main/pet/new/');
     };
 
     useEffect(getPets, []);
-
     return (
         <Container>
-            <ScrollView className='flex-1 bg-slate-50'>
+            <ScrollView className='flex-1 bg-white'>
                 <Container className='p-6'>
                     <Typo.P1 weight='medium'>Meus pets</Typo.P1>
                     <Typo.P2 className='mb-4 text-neutral-400'>
                         Escolha um pet para adicionar as vacinas
                     </Typo.P2>
 
-                    {pets?.map((pet) => {
+                    {sortedPets?.map((pet) => {
                         const vaccinesSeleted = vaccines.filter(
                             (vaccine) => vaccine.petId === pet.id
                         );
 
+                        console.log(vaccinesSeleted?.length);
+
                         return (
-                            <View className='mb-6 flex-row gap-6' key={pet.id}>
+                            <TouchableOpacity
+                                className='mb-6 flex-row items-center gap-6 rounded-xl border border-neutral-100 p-4'
+                                onPress={() => openAddVaccineModal(pet.id)}
+                                key={pet.id}
+                            >
                                 {pet.type === 'cat' && <AvatarCatIllustration size={64} />}
                                 {pet.type === 'dog' && <AvatarDogIllustration size={64} />}
 
-                                <View className='flex-1'>
+                                <View>
                                     <Typo.H5 weight='medium'>{pet.name}</Typo.H5>
+                                    <Typo.P1 className='text-neutral-400'>{pet.breed}</Typo.P1>
 
-                                    {vaccinesSeleted?.length ? (
-                                        <View className='mt-2'>
-                                            {vaccinesSeleted.map((vaccine) => (
-                                                <View
-                                                    className='mb-1 flex-row gap-2'
-                                                    key={vaccine.id}
-                                                >
-                                                    <FontAwesome5
-                                                        name='syringe'
-                                                        size={14}
-                                                        color={theme.colors['neutral-700']}
-                                                    />
-                                                    <Typo.P1 className='-mt-[4px] flex-1 flex-wrap'>
-                                                        {vaccine.name}
-                                                    </Typo.P1>
-                                                </View>
-                                            ))}
-                                            <Button
-                                                className='mt-1 items-center justify-start border-0 p-0 py-1'
-                                                onPress={() => openAddVaccineModal(pet.id)}
-                                            >
-                                                <FontAwesome5
-                                                    name='edit'
-                                                    size={18}
-                                                    color={theme.colors['neutral-400']}
-                                                />
-                                                <Typo.P1 className='-ml-1 mt-[2px] text-neutral-400'>
-                                                    Editar vacina
-                                                </Typo.P1>
-                                            </Button>
+                                    {!!vaccinesSeleted?.length && (
+                                        <View className='mb-2 mt-1 rounded-full bg-primary-100 px-3 py-1'>
+                                            <Typo.P2 weight='medium' className='text-primary-600'>
+                                                {vaccinesSeleted.length}{' '}
+                                                {vaccinesSeleted.length === 1
+                                                    ? 'Vacina selecionada'
+                                                    : 'Vacinas selecionadas'}
+                                            </Typo.P2>
                                         </View>
-                                    ) : (
-                                        <Button
-                                            className='items-center justify-start border-0 p-0 py-1'
-                                            onPress={() => openAddVaccineModal(pet.id)}
-                                        >
-                                            <AntDesign
-                                                name='pluscircleo'
-                                                size={18}
-                                                color={theme.colors['primary-500']}
-                                            />
-                                            <Typo.P1 className='-ml-1 mt-[2px] text-primary-500'>
-                                                Adicionar vacina
-                                            </Typo.P1>
-                                        </Button>
                                     )}
                                 </View>
-                            </View>
+
+                                <View className='absolute right-4 top-1/2'>
+                                    <Entypo
+                                        name='chevron-small-right'
+                                        size={24}
+                                        color={theme.colors['primary-500']}
+                                    />
+                                </View>
+                            </TouchableOpacity>
                         );
                     })}
 

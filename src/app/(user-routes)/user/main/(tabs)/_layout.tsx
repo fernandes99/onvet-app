@@ -3,7 +3,7 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { theme } from '@/styles/theme';
 
 export default function TabsLayout() {
-    const isHideTab = usePathname() === '/main/pet/new';
+    const isHideTab = usePathname() === '/user/main/pet/new';
 
     return (
         <Tabs

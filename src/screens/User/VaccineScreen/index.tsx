@@ -32,7 +32,7 @@ export default function VaccineScreen() {
 
     const goToNextStep = () => {
         if (isLastStep) {
-            return router.push('/vets/');
+            return router.push('/user/vets/');
         }
 
         setCurrentStep((prevState) => ++prevState);

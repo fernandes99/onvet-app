@@ -7,7 +7,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 
 export const AddPetContent = () => {
     const goToPetNewScreen = () => {
-        router.push('/main/pet/new/');
+        router.push('/user/main/pet/new/');
     };
 
     return (

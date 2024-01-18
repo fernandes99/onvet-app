@@ -18,5 +18,5 @@ export default function WelcomeRoute() {
     }, []);
 
     if (loading) return <Loading />;
-    return hasUserAddress ? <Redirect href='/main/home/' /> : <WelcomeScreen />;
+    return hasUserAddress ? <Redirect href='/user/main/home/' /> : <WelcomeScreen />;
 }

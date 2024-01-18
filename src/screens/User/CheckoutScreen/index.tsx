@@ -20,7 +20,7 @@ const CheckoutScreen = () => {
             animation: true
         });
 
-        return <Redirect href='/main/home/' />;
+        return <Redirect href='/user/main/home/' />;
     }
 
     const scheduleType = useMemo(() => {
@@ -33,7 +33,7 @@ const CheckoutScreen = () => {
     };
 
     const goToVetListScreen = () => {
-        router.push('/vets/');
+        router.push('/user/vets/');
     };
 
     const Field = ({ title, value }: { title: string; value: string }) => (

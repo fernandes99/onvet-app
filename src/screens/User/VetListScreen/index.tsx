@@ -10,12 +10,12 @@ import { IVeterinary } from '@/types/veterinary';
 
 const VetListScreen = () => {
     const goToHomeScreen = () => {
-        router.push('/main/home/');
+        router.push('/user/main/home/');
     };
 
     const goToVetProfileScreen = (vetId: IVeterinary['id']) => {
         // @ts-ignore (bug: beta expo typedRoutes)
-        router.push(`/vets/${vetId}`);
+        router.push(`/user/vets/${vetId}`);
     };
 
     const onFilter = () => {};

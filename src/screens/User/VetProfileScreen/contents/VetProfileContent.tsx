@@ -31,7 +31,7 @@ const VetProfileContent = ({ vet }: VetProfileContentProps) => {
     };
 
     const goToCheckoutScreen = () => {
-        router.push('/checkout/');
+        router.push('/user/checkout/');
     };
 
     useEffect(() => {
@@ -48,7 +48,8 @@ const VetProfileContent = ({ vet }: VetProfileContentProps) => {
                     vaccines: schedule.vaccines
                 },
                 summary: {
-                    totalPrice: vet.price
+                    totalPrice: vet.price,
+                    totalPerVaccines: []
                 },
                 veterinary: vet,
                 messageToVeterinary: ''

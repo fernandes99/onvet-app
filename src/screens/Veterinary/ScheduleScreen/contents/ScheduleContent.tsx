@@ -7,6 +7,7 @@ import { IUser, IUserPet } from '@/types/user';
 import { SCHEDULE_ITEMS } from '@/constants/scheduleVet';
 import { theme } from '@/styles/theme';
 import { Image } from 'expo-image';
+import { Container } from '@/components/Container';
 
 interface IScheduleItem extends AgendaEntry {
     id: string;
@@ -49,7 +50,7 @@ const ScheduleContent = () => {
                 day: ''
             };
         }),
-        '2024-01-20': SCHEDULE_ITEMS.map((item, index) => {
+        '2024-01-20': SCHEDULE_ITEMS.map((item) => {
             return {
                 id: 'teste',
                 user: item.user,
@@ -67,9 +68,11 @@ const ScheduleContent = () => {
         //TODO: getSchedule
     };
 
-    const ItemSchedule = (item: IScheduleItem) => {
+    const ItemSchedule = (item: IScheduleItem, isFirst: boolean) => {
         return (
-            <TouchableOpacity className='mr-4 mt-4 rounded-lg bg-white p-4'>
+            <TouchableOpacity
+                className={`${isFirst ? 'mt-8' : 'mt-4'} mr-4 rounded-lg bg-white p-4`}
+            >
                 <View className='absolute right-4 top-4 h-12 w-12 overflow-hidden rounded-full'>
                     <Image
                         style={{ flex: 1 }}
@@ -108,14 +111,26 @@ const ScheduleContent = () => {
     console.log('items', items);
 
     return (
-        <Agenda
-            items={items}
-            selected={new Date().toISOString().split('T')[0]}
-            ListEmptyComponent={EmptySchedule}
-            loadItemsForMonth={onLoadItems}
-            //@ts-ignore // TODO
-            renderItem={ItemSchedule}
-        />
+        <Container className='bg-white'>
+            <Agenda
+                items={items}
+                selected={new Date().toISOString().split('T')[0]}
+                ListEmptyComponent={EmptySchedule}
+                loadItemsForMonth={onLoadItems}
+                hideExtraDays
+                theme={{
+                    dotColor: theme.colors['secondary-500'],
+                    indicatorColor: theme.colors['secondary-500'],
+                    selectedDayBackgroundColor: theme.colors['secondary-500'],
+                    agendaDayTextColor: theme.colors['neutral-400'],
+                    agendaDayNumColor: theme.colors['neutral-400'],
+                    agendaTodayColor: theme.colors['neutral-400'],
+                    todayTextColor: theme.colors['neutral-700']
+                }}
+                //@ts-ignore // TODO
+                renderItem={ItemSchedule}
+            />
+        </Container>
     );
 };
 

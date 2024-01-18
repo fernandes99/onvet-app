@@ -105,7 +105,7 @@ export default function WelcomeScreen() {
         if (currentStepIndex >= steps.length - 1) {
             return storage
                 .set('user_address', address)
-                .then(() => router.replace('/main/home/'))
+                .then(() => router.replace('/user/main/home/'))
                 .catch(() => {
                     Alert.alert('Erro ao inserir endereço', 'Tente novamente mais tarde.', [
                         { text: 'Fechar' }

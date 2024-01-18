@@ -9,7 +9,7 @@ import { router } from 'expo-router';
 
 export default function ProfileScreen() {
     const goToHomeUserScreen = () => {
-        router.push('/main/home/');
+        router.push('/user/main/home/');
     };
 
     return (

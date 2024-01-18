@@ -26,19 +26,19 @@ const DATA_LIST = [
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
         title: 'Meus pets',
         icon: <Ionicons name='paw-outline' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => router.push('/main/pet/')
+        onPress: () => router.push('/user/main/pet/')
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91a972f63',
         title: 'Endereço',
         icon: <Feather name='home' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => router.push('/location/')
+        onPress: () => router.push('/user/location/')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29742',
         title: 'Agendametos',
         icon: <FontAwesome5 name='calendar-alt' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => router.push('/main/schedule/')
+        onPress: () => router.push('/user/main/schedule/')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d22',

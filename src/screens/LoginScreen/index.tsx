@@ -21,7 +21,7 @@ export default function LoginScreen() {
     const [userInfo, setUserInfo] = useState<User | null>(null);
 
     const goToWelcomeScreen = () => {
-        router.push('/welcome/');
+        router.push('/user/welcome/');
     };
 
     const signInGoogle = async () => {

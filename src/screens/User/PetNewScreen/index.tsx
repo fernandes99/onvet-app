@@ -68,12 +68,12 @@ export default function PetNewScreen() {
             )
             .then(() => {
                 Alert.alert('Cadastro realizado', 'O pet foi cadastrado.', [
-                    { text: 'Fechar', onPress: () => router.replace('/main/pet/') }
+                    { text: 'Fechar', onPress: () => router.replace('/user/main/pet/') }
                 ]);
             })
             .catch(() => {
                 Alert.alert('Erro ao cadastrar o pet', 'Tente novamente mais tarde.', [
-                    { text: 'Fechar', onPress: () => router.replace('/main/pet/') }
+                    { text: 'Fechar', onPress: () => router.replace('/user/main/pet/') }
                 ]);
             })
             .finally(() => dispatch(setLoading({ show: false })));
