@@ -34,7 +34,6 @@ export const Input = forwardRef<TextInput, InputProps>(
                     ref={ref}
                     {...rest}
                     className={twMerge(
-                        '',
                         styles.default,
                         styles.size[size],
                         borderless && styles.borderless,

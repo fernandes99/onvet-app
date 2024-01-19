@@ -2,18 +2,22 @@ import { Container } from '@/components/Container';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { Input } from '@/components/Input';
 import { Typo } from '@/components/Typograph';
-import { ScrollView, Touchable, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Touchable, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import { theme } from '@/styles/theme';
 import { SERVICES_LIST, SPECIALTIES_LIST } from '@/constants/specialties';
+import { PET } from '@/constants/pets';
+import { useState } from 'react';
+import CustomModal from '@/components/Modal';
 
-interface PropsTag {
+interface PropsTag extends TouchableOpacityProps {
     title: string;
     selected: boolean;
 }
 
-const Tag = ({ selected, title }: PropsTag) => (
+const Tag = ({ selected, title, ...rest }: PropsTag) => (
     <TouchableOpacity
         className={`flex-row items-center justify-center gap-2 rounded-full border px-4 py-1 ${selected ? 'border-secondary-500' : 'border-neutral-100'}`}
+        {...rest}
     >
         <Typo.P2
             weight='medium'
@@ -25,6 +29,34 @@ const Tag = ({ selected, title }: PropsTag) => (
 );
 
 const EditServiceContent = () => {
+    const [typesSelected, setTypesSelected] = useState<string[]>([]);
+    const [specialtiesSelected, setSpecialtiesSelected] = useState<string[]>([]);
+    const [servicesSelected, setServicesSelected] = useState<string[]>([]);
+
+    const handleSelectPetType = (type: string) => {
+        setTypesSelected(
+            typesSelected.includes(type)
+                ? typesSelected.filter((t) => t !== type)
+                : [...typesSelected, type]
+        );
+    };
+
+    const handleSelectSpecialty = (specialty: string) => {
+        setSpecialtiesSelected(
+            specialtiesSelected.includes(specialty)
+                ? specialtiesSelected.filter((s) => s !== specialty)
+                : [...specialtiesSelected, specialty]
+        );
+    };
+
+    const handleSelectService = (service: string) => {
+        setServicesSelected(
+            servicesSelected.includes(service)
+                ? servicesSelected.filter((s) => s !== service)
+                : [...servicesSelected, service]
+        );
+    };
+
     return (
         <ScrollView className='flex-1'>
             <Container className='gap-6 p-6'>
@@ -34,9 +66,14 @@ const EditServiceContent = () => {
                         Selecione os pets que você atende:
                     </Typo.P2>
                     <View className='my-4 flex-1 flex-row flex-wrap gap-2'>
-                        <Tag title='Cachorro' selected={true} />
-                        <Tag title='Gato' selected={false} />
-                        <Tag title='Outro' selected={false} />
+                        {PET.TYPES.map((type) => (
+                            <Tag
+                                key={type.id}
+                                title={type.name}
+                                selected={typesSelected.includes(type.slug)}
+                                onPress={() => handleSelectPetType(type.slug)}
+                            />
+                        ))}
                     </View>
                 </View>
 
@@ -48,7 +85,8 @@ const EditServiceContent = () => {
                             <Tag
                                 key={specialty.slug}
                                 title={specialty.name}
-                                selected={Math.random() > 0.5}
+                                selected={specialtiesSelected.includes(specialty.slug)}
+                                onPress={() => handleSelectSpecialty(specialty.slug)}
                             />
                         ))}
                     </View>
@@ -64,7 +102,8 @@ const EditServiceContent = () => {
                             <Tag
                                 key={service.slug}
                                 title={service.name}
-                                selected={Math.random() > 0.5}
+                                selected={servicesSelected.includes(service.slug)}
+                                onPress={() => handleSelectService(service.slug)}
                             />
                         ))}
                     </View>
@@ -75,8 +114,29 @@ const EditServiceContent = () => {
                     <Typo.P2 className='text-neutral-400'>
                         Selecione as vacinas que você aplica:
                     </Typo.P2>
+                    {servicesSelected.includes('vacinas') && <View></View>}
                 </View>
             </Container>
+
+            <CustomModal
+                visible={servicesSelected.includes('vacinas')}
+                onRequestClose={() => setServicesSelected([])}
+                height='h-1/2'
+            >
+                <View className='gap-4'>
+                    <Typo.P1 weight='medium'>Quanto você cobra por aplicação de vacina?</Typo.P1>
+                    <View className='flex-row'>
+                        <Typo.H3 className='mr-1'>R$</Typo.H3>
+                        <Input
+                            keyboardType='numeric'
+                            placeholder='25,00'
+                            className='mr-2 mt-[2px]'
+                            autoFocus
+                            onSubmitEditing={() => {}}
+                        />
+                    </View>
+                </View>
+            </CustomModal>
         </ScrollView>
     );
 };
