@@ -40,7 +40,7 @@ export default function VaccineScreen() {
 
     const goToPreviousStep = () => {
         if (!currentStep) {
-            router.back();
+            router.push('/user/main/home/');
         }
 
         setCurrentStep((prevState) => --prevState);

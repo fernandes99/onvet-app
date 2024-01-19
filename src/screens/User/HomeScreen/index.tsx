@@ -7,7 +7,8 @@ import { router } from 'expo-router';
 
 export default function HomeScreen() {
     const goToLocationScreen = () => {
-        router.push('/user/location/');
+        // @ts-ignore
+        router.push(`/user/location/?origin=home`);
     };
 
     const goToVaccineScreen = () => {

@@ -5,12 +5,11 @@ import { theme } from '@/styles/theme';
 export default function TabsLayout() {
     return (
         <Tabs
+            initialRouteName='home'
             screenOptions={{
                 headerShown: false,
                 tabBarShowLabel: false,
-                tabBarStyle: {
-                    height: 64
-                },
+                tabBarStyle: { height: 64 },
                 tabBarActiveTintColor: theme.colors['secondary-500'],
                 tabBarInactiveTintColor: theme.colors['neutral-200']
             }}

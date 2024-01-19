@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
-import { router, useNavigation } from 'expo-router';
+import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { TopBar } from '@/components/TopBar';
@@ -45,6 +45,7 @@ const STEPS = [
 
 export default function PetNewScreen() {
     const dispatch = useDispatch();
+    const { origin } = useLocalSearchParams();
     const [petData, setPetData] = useState<INewPetData>(INITIAL_STATE_PET_DATA);
     const [currentStep, setCurrentStep] = useState(0);
     const [disabledButton, setDisabledButton] = useState(false);
@@ -59,6 +60,7 @@ export default function PetNewScreen() {
             })
         );
 
+        const pathToReplace = origin === 'vaccines' ? '/user/vaccines/' : '/user/main/pet/';
         const currentPets = await storage.get('user_pets');
 
         storage
@@ -68,12 +70,18 @@ export default function PetNewScreen() {
             )
             .then(() => {
                 Alert.alert('Cadastro realizado', 'O pet foi cadastrado.', [
-                    { text: 'Fechar', onPress: () => router.replace('/user/main/pet/') }
+                    {
+                        text: 'Fechar',
+                        onPress: () => router.replace(pathToReplace)
+                    }
                 ]);
             })
             .catch(() => {
                 Alert.alert('Erro ao cadastrar o pet', 'Tente novamente mais tarde.', [
-                    { text: 'Fechar', onPress: () => router.replace('/user/main/pet/') }
+                    {
+                        text: 'Fechar',
+                        onPress: () => router.replace(pathToReplace)
+                    }
                 ]);
             })
             .finally(() => dispatch(setLoading({ show: false })));

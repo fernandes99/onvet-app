@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, ScrollView, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, ScrollView, TouchableOpacity, View } from 'react-native';
 import { router } from 'expo-router';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
@@ -18,6 +18,7 @@ interface VaccineAddContentProps {
 
 const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
     const [pets, setPets] = useState<IUser['pets']>([]);
+    const [loadingContent, setLoadingContent] = useState(true);
     const [vaccineModal, setVaccineModal] = useState({
         show: false,
         petId: ''
@@ -37,6 +38,7 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
     }, [vaccines, pets]);
 
     const getPets = () => {
+        setLoadingContent(true);
         storage
             .get('user_pets')
             .then(setPets)
@@ -44,7 +46,8 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
                 Alert.alert('Erro ao buscar os pets', 'Tente novamente mais tarde.', [
                     { text: 'Fechar' }
                 ]);
-            });
+            })
+            .finally(() => setLoadingContent(false));
     };
 
     const openAddVaccineModal = (petId: IUserPet['id']) => {
@@ -62,10 +65,22 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
     };
 
     const goToAddPetScreen = () => {
-        router.push('/user/main/pet/new/');
+        //@ts-ignore
+        router.push('/user/main/pet/new/?origin=vaccines');
     };
 
     useEffect(getPets, []);
+
+    if (loadingContent) {
+        return (
+            <ActivityIndicator
+                className='flex-1 bg-white'
+                color={theme.colors['primary-500']}
+                size='large'
+            />
+        );
+    }
+
     return (
         <Container>
             <ScrollView className='flex-1 bg-white'>
@@ -75,25 +90,27 @@ const VaccineAddContent = ({ vaccines }: VaccineAddContentProps) => {
                         Escolha um pet para adicionar as vacinas
                     </Typo.P2>
 
-                    {sortedPets?.map((pet) => (
-                        <PetCard
-                            key={pet.id}
-                            onPress={() => openAddVaccineModal(pet.id)}
-                            vaccines={vaccines}
-                            pet={pet}
-                        />
-                    ))}
-
-                    <TouchableOpacity onPress={goToAddPetScreen} className='mt-8 items-center'>
-                        <View className='mb-2 h-24 w-24 items-center justify-center rounded-full bg-primary-100'>
-                            <AntDesign
-                                name='pluscircle'
-                                size={32}
-                                color={theme.colors['primary-500']}
+                    <Container>
+                        {sortedPets?.map((pet) => (
+                            <PetCard
+                                key={pet.id}
+                                onPress={() => openAddVaccineModal(pet.id)}
+                                vaccines={vaccines}
+                                pet={pet}
                             />
-                        </View>
-                        <Typo.H5 className='text-primary-500'>Cadastrar pet</Typo.H5>
-                    </TouchableOpacity>
+                        ))}
+
+                        <TouchableOpacity onPress={goToAddPetScreen} className='mt-8 items-center'>
+                            <View className='mb-2 h-24 w-24 items-center justify-center rounded-full bg-primary-100'>
+                                <AntDesign
+                                    name='pluscircle'
+                                    size={32}
+                                    color={theme.colors['primary-500']}
+                                />
+                            </View>
+                            <Typo.H5 className='text-primary-500'>Cadastrar pet</Typo.H5>
+                        </TouchableOpacity>
+                    </Container>
                 </Container>
             </ScrollView>
 

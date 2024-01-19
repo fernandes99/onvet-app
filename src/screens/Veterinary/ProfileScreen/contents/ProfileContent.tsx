@@ -14,19 +14,19 @@ const DATA_LIST = [
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
         title: 'Meus Dados',
         icon: <AntDesign name='profile' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => router.push('/vet/main/profile/edit/')
+        onPress: () => router.push('/vet/profile-edit/')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
         title: 'Especializações e serviços',
         icon: <AntDesign name='rocket1' size={24} color='black' />,
-        onPress: () => router.push('/vet/main/profile/services/')
+        onPress: () => router.push('/vet/profile-services/')
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91a972f63',
         title: 'Endereços',
         icon: <Feather name='home' size={24} color={theme.colors['neutral-700']} />,
-        onPress: () => router.push('/vet/main/profile/address/')
+        onPress: () => router.push('/vet/profile-address/')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29742',

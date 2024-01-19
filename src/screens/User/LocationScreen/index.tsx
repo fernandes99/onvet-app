@@ -1,7 +1,7 @@
 import { Container } from '@/components/Container';
 import { TopBar } from '@/components/TopBar';
-import { router } from 'expo-router';
-import { ActivityIndicator, ScrollView, View } from 'react-native';
+import { router, useLocalSearchParams } from 'expo-router';
+import { ActivityIndicator, View } from 'react-native';
 import LocationContent from './contents/LocationContent';
 import { useEffect, useState } from 'react';
 import { IUser } from '@/types/user';
@@ -13,8 +13,10 @@ import { theme } from '@/styles/theme';
 export default function LocationScreen() {
     const [loading, setLoading] = useState(true);
     const [address, setAddress] = useState<IUser['address'] | null>(null);
+    const { origin } = useLocalSearchParams();
+
     const goToBack = () => {
-        router.back();
+        router.push(origin === 'home' ? '/user/main/home/' : '/user/main/profile/');
     };
 
     useEffect(() => {

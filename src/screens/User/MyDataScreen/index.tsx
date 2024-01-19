@@ -14,7 +14,7 @@ export default function MyDataScreen() {
     const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState<IUser | null>(null);
     const goToBack = () => {
-        router.back();
+        router.push('/user/main/profile/');
     };
 
     useEffect(() => {

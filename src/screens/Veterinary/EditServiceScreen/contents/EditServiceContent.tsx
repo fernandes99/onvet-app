@@ -21,11 +21,6 @@ const Tag = ({ selected, title }: PropsTag) => (
         >
             {title}
         </Typo.P2>
-        {selected && (
-            <View className='-mr-1'>
-                <AntDesign name='closecircle' size={18} color={theme.colors['secondary-500']} />
-            </View>
-        )}
     </TouchableOpacity>
 );
 

@@ -8,6 +8,7 @@ import { SCHEDULE_ITEMS } from '@/constants/scheduleVet';
 import { theme } from '@/styles/theme';
 import { Image } from 'expo-image';
 import { Container } from '@/components/Container';
+import format from '@/utils/scripts/format';
 
 interface IScheduleItem extends AgendaEntry {
     id: string;
@@ -91,10 +92,12 @@ const ScheduleContent = () => {
                         </Typo.S1>
                     </View>
                 </View>
-                <Typo.P1 weight='medium' className='-mb-1'>
+                <Typo.P1 weight='medium'>
                     {item.user?.name} {item.user?.surname}
                 </Typo.P1>
-                <Typo.P2 className='text-neutral-400'>Vacina</Typo.P2>
+                <Typo.P2 className='text-neutral-400'>
+                    {Math.random() > 0.5 ? 'Consulta ' : 'Vacina  '} - {format.money(89.99)}
+                </Typo.P2>
                 <Typo.P2 className='text-neutral-400'>10:00AM - 10:45AM</Typo.P2>
             </TouchableOpacity>
         );

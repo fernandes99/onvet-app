@@ -8,6 +8,10 @@ import { View } from 'react-native';
 import { router } from 'expo-router';
 
 export default function ProfileScreen() {
+    const logout = () => {
+        router.replace('/login/');
+    };
+
     const goToHomeVetScreen = () => {
         router.push('/vet/main/home/');
     };
@@ -16,7 +20,7 @@ export default function ProfileScreen() {
         <Container className='bg-white p-6'>
             <ProfileContent />
             <View className='gap-4'>
-                <Button variant='ghost' className='border-0'>
+                <Button variant='ghost' className='border-0' onPress={logout}>
                     <Typo.H5 className='text-neutral-300'>Sair</Typo.H5>
                     <AntDesign name='logout' size={16} color={theme.colors['neutral-300']} />
                 </Button>

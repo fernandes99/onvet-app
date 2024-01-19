@@ -9,7 +9,7 @@ import { TopBar } from '@/components/TopBar';
 
 export default function EditServiceScreen() {
     const goToBack = () => {
-        router.back();
+        router.push('/vet/main/profile/');
     };
 
     return (

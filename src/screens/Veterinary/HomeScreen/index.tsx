@@ -3,7 +3,6 @@ import { ScrollView, View } from 'react-native';
 import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
 import format from '@/utils/scripts/format';
-import { theme } from '@/styles/theme';
 import ScheduleCard from './components/ScheduleCard';
 
 export default function HomeScreen() {
