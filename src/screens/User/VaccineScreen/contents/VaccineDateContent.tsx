@@ -1,16 +1,16 @@
+import { Platform, ScrollView, View, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
-import { Platform, ScrollView, View } from 'react-native';
+import RNDateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
 import { theme } from '@/styles/theme';
-import { TouchableOpacity } from 'react-native';
-import RNDateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { Button } from '@/components/Button';
 import { useDispatch } from 'react-redux';
 import { setScheduleDateTime } from '@/store/reducers/schedule';
+import format from '@/utils/scripts/format';
 
 const VaccineDateContent = () => {
     const dispatch = useDispatch();
@@ -75,7 +75,7 @@ const VaccineDateContent = () => {
 
                     <View className='gap-4'>
                         {date && <Field title='Data' value={date.toLocaleDateString()} />}
-                        {time && <Field title='Horário' value={time.toLocaleTimeString()} />}
+                        {time && <Field title='Horário' value={format.time(time, 'HHhMM')} />}
 
                         {time && date && (
                             <Button variant='ghost' className='mt-2' onPress={resetDateTime}>

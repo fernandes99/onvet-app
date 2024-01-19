@@ -2,6 +2,7 @@ export interface IUser {
     id: string;
     name: string;
     surname: string;
+    profile_image?: string;
     pets: IUserPet[];
     address: IUserAddress;
 }

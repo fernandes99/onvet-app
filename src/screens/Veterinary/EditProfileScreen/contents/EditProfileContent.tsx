@@ -4,7 +4,6 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import { Container } from '@/components/Container';
 import { Input } from '@/components/Input';
-import { theme } from '@/styles/theme';
 
 const EditProfileContent = () => {
     return (
