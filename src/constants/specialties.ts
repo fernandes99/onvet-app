@@ -1,31 +1,67 @@
 export const SPECIALTIES_LIST = [
     {
+        name: 'Clínica Geral',
+        slug: 'clinica-geral'
+    },
+    {
+        name: 'Acupuntura',
+        slug: 'acupuntura'
+    },
+    {
+        name: 'Anestesiologia',
+        slug: 'anestesiologia'
+    },
+    {
         name: 'Cardiologia',
         slug: 'cardiologia'
     },
     {
+        name: 'Cirurgia Veterinária',
+        slug: 'cirurgia-veterinaria'
+    },
+    {
         name: 'Dermatologia',
-        slug: 'dermatologia'
+        slug: 'dermatogia'
     },
     {
-        name: 'Clínica geral',
-        slug: 'clinica-geral'
+        name: 'Diagnóstico por Imagem',
+        slug: 'diagnostico-por-imagem'
     },
     {
-        name: 'Nutrição',
-        slug: 'nutricao'
+        name: 'Endocrinologia',
+        slug: 'endocrinologia'
     },
     {
-        name: 'Medicina Interna',
-        slug: 'medicina-interna'
+        name: 'Homeopatia',
+        slug: 'homeopatia'
     },
     {
-        name: 'Odontologia',
-        slug: 'odontologia'
+        name: 'Animais Selvagens',
+        slug: 'medicina-de-animais-selvagens'
     },
     {
-        name: 'Outros',
-        slug: 'outros'
+        name: 'Medicina Veterinária Intensiva',
+        slug: 'medicina-veterinaria-intensiva'
+    },
+    {
+        name: 'Medicina Veterinária do Coletivo',
+        slug: 'medicina-veterinaria-do-coletivo'
+    },
+    {
+        name: 'Nefrologia e Urologia',
+        slug: 'Nefrologia e Urologia'
+    },
+    {
+        name: 'Nutrologia de Cães e Gatos',
+        slug: 'nutrologia-de-caes-e-gatos'
+    },
+    {
+        name: 'Oftalmologia',
+        slug: 'oftalmologia'
+    },
+    {
+        name: 'Patologia',
+        slug: 'patologia'
     }
 ];
 

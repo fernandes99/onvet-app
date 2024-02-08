@@ -32,7 +32,16 @@
             "typedRoutes": true,
             "tsconfigPaths": true
         },
-        "plugins": ["@react-native-google-signin/google-signin", "expo-router"],
+        "plugins": [
+            "@react-native-google-signin/google-signin",
+            "expo-router",
+            [
+                "@stripe/stripe-react-native",
+                {
+                    "merchantIdentifier": "com.fernandes99.onvetapp"
+                }
+            ]
+        ],
         "extra": {
             "router": {
                 "origin": false

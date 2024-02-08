@@ -40,7 +40,7 @@ const PetNewContentGender = ({ onChangeGender, onChangeCastrated }: PetNewConten
                 </TouchableOpacity>
             </View>
             <View className='gap-4'>
-                <Typo.P1 weight='medium'>Já pasou por castração?</Typo.P1>
+                <Typo.P1 weight='medium'>Já passou por castração?</Typo.P1>
                 <View className='flex-row gap-4'>
                     <Button
                         className='flex-1'
@@ -55,7 +55,7 @@ const PetNewContentGender = ({ onChangeGender, onChangeCastrated }: PetNewConten
                         <Typo.P1
                             className={`${
                                 currentCastrated && currentCastrated !== null
-                                    ? 'text-primary-500'
+                                    ? 'text-white'
                                     : 'text-neutral-500'
                             }`}
                         >
@@ -75,7 +75,7 @@ const PetNewContentGender = ({ onChangeGender, onChangeCastrated }: PetNewConten
                         <Typo.P1
                             className={`${
                                 !currentCastrated && currentCastrated !== null
-                                    ? 'text-primary-500'
+                                    ? 'text-white'
                                     : 'text-neutral-500'
                             }`}
                         >

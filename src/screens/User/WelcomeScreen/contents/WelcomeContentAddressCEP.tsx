@@ -2,16 +2,16 @@ import { NativeSyntheticEvent, TextInputSubmitEditingEventData, View } from 'rea
 
 import { Typo } from '@/components/Typograph';
 import { theme } from '@/styles/theme';
-import { IAddressData } from '../types';
 import Toast from 'react-native-root-toast';
 import axios from 'axios';
 import { MaskedTextInput } from 'react-native-mask-text';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setLoading } from '@/store/reducers/global';
+import { IUser } from '@/types/user';
 
 interface WelcomeContentAddressCEPProps {
-    updateAddress: (addressData: IAddressData) => void;
+    updateAddress: (addressData: IUser['address']) => void;
 }
 
 interface IResponseGetCEPAddress {

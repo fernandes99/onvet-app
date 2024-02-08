@@ -19,7 +19,7 @@ export default function EditServiceScreen() {
                 <ProfileDataContent />
                 <View className='gap-4 border-t border-t-neutral-100 p-6'>
                     <Button variant='ghost'>
-                        <Typo.H5 className='text-neutral-300'>Salvar</Typo.H5>
+                        <Typo.H5 className='text-white'>Salvar</Typo.H5>
                     </Button>
                 </View>
             </Container>

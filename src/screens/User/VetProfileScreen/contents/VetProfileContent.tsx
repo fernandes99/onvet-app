@@ -60,8 +60,16 @@ const VetProfileContent = ({ vet }: VetProfileContentProps) => {
     return (
         <Container>
             <ScrollView className='flex-1 bg-slate-100'>
-                <View className='h-40 bg-red-300'>
-                    <View className='p-4'>
+                <View className='relative h-40 overflow-hidden bg-secondary-200'>
+                    <Image
+                        source={
+                            'https://www.petz.com.br/blog//wp-content/uploads/2023/04/Medo-de-veterinario-3.jpg'
+                        }
+                        contentFit='cover'
+                        transition={500}
+                        style={{ height: 200, opacity: 0.75 }}
+                    />
+                    <View className='absolute left-0 top-0 p-4 '>
                         <TouchableOpacity
                             onPress={goToBack}
                             className='h-14 w-14 items-center justify-center rounded-full bg-white'
@@ -69,7 +77,7 @@ const VetProfileContent = ({ vet }: VetProfileContentProps) => {
                             <AntDesign
                                 name='arrowleft'
                                 size={24}
-                                color={theme.colors['neutral-400']}
+                                color={theme.colors['primary-500']}
                             />
                         </TouchableOpacity>
                     </View>
@@ -173,7 +181,7 @@ const VetProfileContent = ({ vet }: VetProfileContentProps) => {
                     </Typo.P1>
                 </View>
                 <Button className='flex-1' onPress={goToCheckoutScreen}>
-                    <Typo.P1 weight='medium' className='text-primary-500'>
+                    <Typo.P1 weight='medium' className='text-white'>
                         Continuar
                     </Typo.P1>
                 </Button>

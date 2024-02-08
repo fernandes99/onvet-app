@@ -78,7 +78,7 @@ export default function VaccineScreen() {
                 >
                     <Typo.P1
                         weight='medium'
-                        className={disabledButton ? 'text-neutral-500' : 'text-primary-500'}
+                        className={disabledButton ? 'text-neutral-500' : 'text-white'}
                     >
                         {isLastStep ? 'Procurar veterinário' : 'Continuar'}
                     </Typo.P1>

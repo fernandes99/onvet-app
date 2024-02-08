@@ -40,7 +40,7 @@ export default function MyDataScreen() {
             </Container>
             <View className='border-t border-t-neutral-100 bg-white p-6'>
                 <Button onPress={() => {}}>
-                    <Typo.P1 weight='medium' className='text-primary-500'>
+                    <Typo.P1 weight='medium' className='text-white'>
                         Salvar
                     </Typo.P1>
                 </Button>

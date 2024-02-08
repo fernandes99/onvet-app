@@ -36,7 +36,7 @@ const PetNewContentType = ({ onSelectType }: PetNewContentTypeProps) => {
                 >
                     <Typo.P1
                         className={`${
-                            indexOptionSelected === index ? 'text-primary-500' : 'text-neutral-500'
+                            indexOptionSelected === index ? 'text-white' : 'text-neutral-500'
                         }`}
                     >
                         {option.name}

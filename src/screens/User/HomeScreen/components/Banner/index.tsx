@@ -32,7 +32,7 @@ export const Banner = ({ title, text, cta, color = 'default', imageSrc, ...rest 
             <View className='gap-2'>
                 <Typo.H4 className='color-white'>{title}</Typo.H4>
                 <Typo.P1 className='mb-4 color-white'>{text}</Typo.P1>
-                <Button className='border-0 bg-white' onPress={rest.onPress}>
+                <Button className='bg-white' onPress={rest.onPress}>
                     <Typo.P1 weight='medium' className={textColor[color]}>
                         {cta}
                     </Typo.P1>

@@ -27,7 +27,7 @@ const PetNewContentResume = ({
                 {type === 'cat' && <AvatarCatIllustration size={120} />}
                 {type === 'dog' && <AvatarDogIllustration size={120} />}
 
-                <Button variant='primary' className='border-0'>
+                <Button variant='ghost' className='border-0'>
                     <Typo.P2 weight='medium' className='text-primary-500'>
                         Alterar foto
                     </Typo.P2>

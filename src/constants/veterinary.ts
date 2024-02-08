@@ -1,4 +1,4 @@
-const VETERINARY = {
+export const VETERINARY = {
     id: '',
     name: '',
     surname: '',
@@ -38,18 +38,26 @@ const VETERINARY = {
         {
             name: 'Vacinas',
             slug: 'vacinas',
-            price: 1099
+            price: 1099,
+            vaccines: [
+                {
+                    id: 'a1b2c3d4e5',
+                    name: 'Vacina V8',
+                    slug: 'v8',
+                    price: 2000
+                }
+            ]
         },
         {
             name: 'Consultas',
             slug: 'consultas',
             price: 4999
-        },
-        {
-            name: 'Exames laboratoriais',
-            slug: 'exames-laboratoriais',
-            price: 1999
         }
+        // {
+        //     name: 'Castração',
+        //     slug: 'castracao',
+        //     price: 1999
+        // }
     ],
     vaccines: [
         {

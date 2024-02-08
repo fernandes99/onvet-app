@@ -73,7 +73,7 @@ const AddVaccineModal = ({ visible, currentVaccines, petId, onClose }: AddVaccin
             </ScrollView>
 
             <Button onPress={onSave}>
-                <Typo.P1 weight='medium' className='text-primary-500'>
+                <Typo.P1 weight='medium' className='text-white'>
                     Salvar
                 </Typo.P1>
             </Button>

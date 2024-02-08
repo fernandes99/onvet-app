@@ -3,7 +3,7 @@ export const PET = {
         {
             id: '0',
             name: 'Cachorro',
-            slug: 'cachorro'
+            slug: 'dog'
         },
         {
             id: '1',
@@ -13,7 +13,7 @@ export const PET = {
         {
             id: '2',
             name: 'Outro',
-            slug: 'Outro'
+            slug: 'other'
         }
     ]
 };

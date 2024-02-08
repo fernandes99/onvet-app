@@ -33,7 +33,7 @@ export const TopBar = ({ title, onBack, onCancel, className, ...rest }: TopBarPr
             </Typo.P1>
             {onCancel && (
                 <Button className='w-16 border-0 px-1 py-3' onPress={onCancel}>
-                    <Typo.S2 className='text-primary-600'>Cancelar</Typo.S2>
+                    <Typo.S2 className='text-white'>Cancelar</Typo.S2>
                 </Button>
             )}
         </View>

@@ -168,7 +168,7 @@ export default function WelcomeScreen() {
 
             <View className='w-full border-t border-neutral-100 bg-white p-6'>
                 {currentStep.name === 'ContentAddressResume' && (
-                    <Button onPress={goToNextStep} variant='secondary' className='mb-4'>
+                    <Button onPress={goToNextStep} variant='ghost' className='mb-4'>
                         <Typo.P1 className='text-neutral-500'>Alterar endereço</Typo.P1>
                     </Button>
                 )}
@@ -177,7 +177,7 @@ export default function WelcomeScreen() {
                     disabled={disabledButton}
                     aria-disabled={disabledButton}
                 >
-                    <Typo.P1 className={disabledButton ? 'text-neutral-500' : 'text-primary-500'}>
+                    <Typo.P1 className={disabledButton ? 'text-neutral-500' : 'text-white'}>
                         {currentStep.name === 'ContentAddressResume'
                             ? 'Certo, vamos lá!'
                             : 'Continuar'}

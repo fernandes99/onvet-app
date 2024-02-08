@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 export default function Layout() {
     const { session, isLoading } = useSession();
 
-    return <Redirect href='/vet/profile-services/' />;
+    return <Redirect href='/user/main/home/' />;
 
     if (isLoading) {
         return <Text>Loading...</Text>;

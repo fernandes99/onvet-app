@@ -3,7 +3,7 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { theme } from '@/styles/theme';
 
 export default function TabsLayout() {
-    const isHideTab = usePathname() === '/user/main/pet/new';
+    const tabHidden = ['/user/main/pet/new', '/user/main/schedule/detail'].includes(usePathname());
 
     return (
         <Tabs
@@ -12,7 +12,7 @@ export default function TabsLayout() {
                 tabBarShowLabel: false,
                 tabBarStyle: {
                     height: 64,
-                    display: isHideTab ? 'none' : 'flex'
+                    display: tabHidden ? 'none' : 'flex'
                 },
                 tabBarActiveTintColor: theme.colors['primary-500'],
                 tabBarInactiveTintColor: theme.colors['neutral-200']

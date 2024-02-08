@@ -40,6 +40,10 @@ module.exports = {
                 'purple-500': '#8F00FF',
                 'purple-600': '#7A00DA',
 
+                'red-100': '#FFDFDF',
+                'red-200': '#FFBFBF',
+                'red-300': '#FB9797',
+                'red-400': '#F46262',
                 'red-500': '#DD3737',
 
                 'green-500': '#11D13B',

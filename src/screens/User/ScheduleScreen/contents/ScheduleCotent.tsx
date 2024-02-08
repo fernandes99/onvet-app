@@ -2,9 +2,14 @@ import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
 import { SCHEDULE_ITEMS } from '@/constants/scheduleVet';
+import { router } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 
 const ScheduleContent = () => {
+    const goToScheduleDetailScreen = () => {
+        return router.push('/user/main/schedule/detail/');
+    };
+
     return (
         <Container className='bg-white'>
             <ScrollView>
@@ -54,15 +59,19 @@ const ScheduleContent = () => {
                                 </View>
 
                                 <View className='mt-2 flex-row'>
-                                    <Button className='w-[null] flex-1 border-0'>
-                                        <Typo.P1 weight='medium' className='text-neutral-400'>
+                                    <Button variant='ghost' className='w-[null] flex-1 border-0'>
+                                        <Typo.S1 weight='medium' className='text-primary-500'>
                                             Ajuda
-                                        </Typo.P1>
+                                        </Typo.S1>
                                     </Button>
-                                    <Button className='w-[null] flex-1 border-0'>
-                                        <Typo.P1 weight='medium' className='text-neutral-400'>
+                                    <Button
+                                        variant='ghost'
+                                        className='w-[null] flex-1 border-0'
+                                        onPress={goToScheduleDetailScreen}
+                                    >
+                                        <Typo.S1 weight='medium' className='text-primary-500'>
                                             Detalhes
-                                        </Typo.P1>
+                                        </Typo.S1>
                                     </Button>
                                 </View>
                             </View>

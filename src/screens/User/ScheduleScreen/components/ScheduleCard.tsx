@@ -1,10 +1,15 @@
 import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import { Button } from '@/components/Button';
 import { Typo } from '@/components/Typograph';
+import { router } from 'expo-router';
 
 interface ScheduleCardProps extends TouchableOpacityProps {}
 
 const ScheduleCard = ({ ...rest }: ScheduleCardProps) => {
+    // const goToScheduleDetailScreen = () => {
+    //     router.push('/user/main/schedule/detail/');
+    // };
+
     return (
         <TouchableOpacity className='rounded-lg border border-neutral-100 p-4 pb-2' {...rest}>
             <View>
@@ -35,17 +40,19 @@ const ScheduleCard = ({ ...rest }: ScheduleCardProps) => {
             </View>
 
             <View className='mt-2 flex-row'>
-                <Button className='w-[null] flex-1 border-0'>
-                    <Typo.P1 weight='medium' className='text-neutral-400'>
+                <Button className='w-[null] flex-1'>
+                    <Typo.S1 weight='medium' className='text-white'>
                         Ajuda
-                    </Typo.P1>
+                    </Typo.S1>
                 </Button>
-                <Button className='w-[null] flex-1 border-0'>
-                    <Typo.P1 weight='medium' className='text-neutral-400'>
+                <Button className='w-[null] flex-1' onPress={() => {}}>
+                    <Typo.S1 weight='medium' className='text-white'>
                         Detalhes
-                    </Typo.P1>
+                    </Typo.S1>
                 </Button>
             </View>
         </TouchableOpacity>
     );
 };
+
+export default ScheduleCard;

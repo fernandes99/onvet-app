@@ -195,7 +195,7 @@ export default function PetNewScreen() {
                 >
                     <Typo.P1
                         weight='medium'
-                        className={disabledButton ? 'text-neutral-500' : 'text-primary-500'}
+                        className={disabledButton ? 'text-neutral-500' : 'text-white'}
                     >
                         {isLastStep ? 'Salvar' : 'Continuar'}
                     </Typo.P1>

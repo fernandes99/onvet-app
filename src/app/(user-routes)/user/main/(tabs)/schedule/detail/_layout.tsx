@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 
-export default function PetNewLayout() {
+export default function ScheduleDetailLayout() {
     return (
         <Stack
             screenOptions={{

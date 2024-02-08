@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { GoogleSignin, User } from '@react-native-google-signin/google-signin';
+import Toast from 'react-native-root-toast';
 
 import { setLoading } from '@/store/reducers/global';
 import { BrandGoogle } from '@/assets/svgs/BrandGoogle';
@@ -13,7 +14,14 @@ import { Container } from '@/components/Container';
 import { Typo } from '@/components/Typograph';
 import { Image } from 'expo-image';
 import { storage } from '@/utils/scripts/storage';
-import Toast from 'react-native-root-toast';
+
+// Notifications.setNotificationHandler({
+//     handleNotification: async () => ({
+//         shouldPlaySound: true,
+//         shouldShowAlert: true,
+//         shouldSetBadge: true
+//     })
+// });
 
 export default function LoginScreen() {
     const dispatch = useDispatch();
@@ -23,6 +31,17 @@ export default function LoginScreen() {
     const goToWelcomeScreen = () => {
         router.push('/user/welcome/');
     };
+
+    // async function schedulePushNotification() {
+    //     await Notifications.scheduleNotificationAsync({
+    //         content: {
+    //             title: "You've got mail! 📬",
+    //             body: 'Here is the notification body',
+    //             data: { data: 'goes here' }
+    //         },
+    //         trigger: { seconds: 5 }
+    //     });
+    // }
 
     const signInGoogle = async () => {
         try {
@@ -62,6 +81,10 @@ export default function LoginScreen() {
             iosClientId: '937027356400-mbd0qdo51agtlkl5lbosfratgenc3nra.apps.googleusercontent.com'
         });
     }, []);
+
+    // useEffect(() => {
+    //     registerForPushNotificationsAsync().then((token) => console.log('token', token));
+    // }, []);
 
     return (
         <Container className='bg-secondary-900'>
